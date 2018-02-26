@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using cbLibrary;
 
 namespace cbGenerateTableTest
 {
@@ -15,6 +16,23 @@ namespace cbGenerateTableTest
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //generate a basic list of data
+            List<clsDoublePoint> basicDataList = new List<clsDoublePoint>();
+            for(int i = 1; i < 6; i++)
+            {
+                basicDataList.Add(new clsDoublePoint(i, i));
+            }
+
+            //use that basic datalist to generate and save a table
+            cbGenerateTable generateBasicTable = new cbGenerateTable(basicDataList, "Basic Datalist Test");
+
+
+
+
         }
     }
 }

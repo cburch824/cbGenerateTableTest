@@ -1,6 +1,6 @@
-﻿namespace cbGenerateTableTest
+﻿namespace cbLibrary
 {
-    partial class Form1
+    partial class frmDrawWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGenerateBasicTable = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnGenerateBasicTable
-            // 
-            this.btnGenerateBasicTable.Location = new System.Drawing.Point(13, 13);
-            this.btnGenerateBasicTable.Name = "btnGenerateBasicTable";
-            this.btnGenerateBasicTable.Size = new System.Drawing.Size(75, 56);
-            this.btnGenerateBasicTable.TabIndex = 0;
-            this.btnGenerateBasicTable.Text = "Generate Basic Table";
-            this.btnGenerateBasicTable.UseVisualStyleBackColor = true;
-            this.btnGenerateBasicTable.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Form1
+            // frmDrawWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 332);
-            this.Controls.Add(this.btnGenerateBasicTable);
-            this.Name = "Form1";
-            this.Text = "Generate Table Test";
+            this.ClientSize = new System.Drawing.Size(684, 461);
+            this.Name = "frmDrawWindow";
+            this.Text = "frmDrawWindow";
+            this.Load += new System.EventHandler(this.frmDrawWindow_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGenerateBasicTable;
     }
 }
-

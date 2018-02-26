@@ -45,14 +45,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cbGenerateTable.cs" />
+    <Compile Include="cbLib\clsDoublePoint.cs" />
+    <Compile Include="cbLib\DirectorySearcher.cs" />
+    <Compile Include="cbLib\DrawScatterplot.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="cbLib\frmDrawWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cbLib\frmDrawWindow.Designer.cs" />
+    <Compile Include="frmDrawTableWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDrawTableWindow.Designer.cs">
+      <DependentUpon>frmDrawTableWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="cbLib\TextfileLineBuilder.cs" />
+    <EmbeddedResource Include="cbLib\frmDrawWindow.resx">
+      <DependentUpon>frmDrawWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDrawTableWindow.resx">
+      <DependentUpon>frmDrawTableWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
