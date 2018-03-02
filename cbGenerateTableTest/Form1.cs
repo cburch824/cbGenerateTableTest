@@ -22,13 +22,13 @@ namespace cbGenerateTableTest
         {
             //generate a basic list of data
             List<clsDoublePoint> basicDataList = new List<clsDoublePoint>();
-            for(int i = 1; i < 6; i++)
+            for(int i = 1; i < 21; i++)
             {
                 basicDataList.Add(new clsDoublePoint(i, i));
             }
 
             //use that basic datalist to generate and save a table
-            cbGenerateTable generateBasicTable = new cbGenerateTable(basicDataList, "Basic Datalist Test");
+            cbGenerateTable generateBasicTable = new cbGenerateTable(basicDataList, "Header X", "Header Y",  "Basic Datalist Test");
 
 
 

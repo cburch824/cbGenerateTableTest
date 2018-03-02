@@ -19,15 +19,15 @@ namespace cbGenerateTableTest
         string fileName;
 
         
-        public cbGenerateTable(List<clsDoublePoint> inputData, string fn)
+        public cbGenerateTable(List<clsDoublePoint> inputData, string headerXAxis, string headerYAxis, string fn)
         {
             fileName = fn;
-            drawWindow(inputData);
+            drawWindow(inputData, headerXAxis, headerYAxis);
             
             
         }
 
-        private void drawWindow(List<clsDoublePoint> dL)
+        private void drawWindow(List<clsDoublePoint> dL, string headerX, string headerY)
         {
 
             //This foreach determines the maximum x and y values in the set of plot points. 
@@ -42,10 +42,11 @@ namespace cbGenerateTableTest
 
 
             //Calls the constructor.
-            tableWindow = new clsGenerateTable( new frmDrawTableWindow(dL.Count, 5, 5));
+            tableWindow = new clsGenerateTable( new frmDrawTableWindow(dL.Count, 5, 5, headerX, headerY));
             tableWindow.tableWindow.Show();
 
             tableWindow.tableWindow.drawTableBorder();
+
             //tableWindow.tableWindow.drawScale();
             tableWindow.tableWindow.populateTableWithData(dL);
 
