@@ -1,6 +1,6 @@
 ﻿namespace cbGenerateTableTest
 {
-    partial class Form1
+    partial class frmGenerateTableTestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,14 +41,15 @@
             this.btnGenerateBasicTable.UseVisualStyleBackColor = true;
             this.btnGenerateBasicTable.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // frmGenerateTableTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 332);
             this.Controls.Add(this.btnGenerateBasicTable);
-            this.Name = "Form1";
+            this.Name = "frmGenerateTableTestForm";
             this.Text = "Generate Table Test";
+            this.Load += new System.EventHandler(this.frmGenerateTableTestForm_Load);
             this.ResumeLayout(false);
 
         }

@@ -11,27 +11,43 @@ using cbLibrary;
 
 namespace cbGenerateTableTest
 {
-    public partial class Form1 : Form
+    public partial class frmGenerateTableTestForm : Form
     {
-        public Form1()
+        public frmGenerateTableTestForm()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //generate a basic list of data
+            //User-defined values
+            string headerXColumn = "Header X";
+            string headerYColumn = "Header Y";
+            int maximumYValue = 99999999;
+            int numberOfDatapoints = 20;
+            string tableFileName = "Basic Datalist Test"; //will be saved as a jpeg file
+
+            //Random function used for seeding dataset
+            Random randomYValueGenerator = new Random();
+
+            //Generate a basic list of data
             List<clsDoublePoint> basicDataList = new List<clsDoublePoint>();
-            for(int i = 1; i < 21; i++)
+            for(int i = 1; i < numberOfDatapoints + 1; i++)
             {
-                basicDataList.Add(new clsDoublePoint(i, i));
+                int randomlyGeneratedYValue = randomYValueGenerator.Next(maximumYValue);
+                basicDataList.Add(new clsDoublePoint(i, randomlyGeneratedYValue));
             }
 
-            //use that basic datalist to generate and save a table
-            cbGenerateTable generateBasicTable = new cbGenerateTable(basicDataList, "Header X", "Header Y",  "Basic Datalist Test");
+            //Use that basic datalist to generate and save a table
+            cbGenerateTable generateBasicTable = new cbGenerateTable(basicDataList, headerXColumn, headerYColumn,  tableFileName);
 
 
 
+
+        }
+
+        private void frmGenerateTableTestForm_Load(object sender, EventArgs e)
+        {
 
         }
     }
