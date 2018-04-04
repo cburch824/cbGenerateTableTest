@@ -48,6 +48,7 @@ namespace cbGenerateTableTest
 
         Bitmap tableImageBitmap;
 
+
         /// <summary>
         /// Draws the window for the table and sets the scale for the table using input values.
         /// </summary>
@@ -62,6 +63,7 @@ namespace cbGenerateTableTest
             //updates the max characters in the left column value if necessary
             maxCharactersInLeftColumn = (maxLeftColValue.ToString().Length >= headerLeftColumn.Length) ? maxLeftColValue.ToString().Length : headerLeftColumn.Length;
             maxCharactersInRightColumn = (maxRightColValue.ToString().Length >= headerRightColumn.Length) ? maxRightColValue.ToString().Length : headerRightColumn.Length;
+
 
             perCharacterSizeMultiplier = 8; //determines number of pixels added to graph per max number of values in columns (scales width and height of table window)
 
@@ -142,15 +144,18 @@ namespace cbGenerateTableTest
         /// <param name="xValue">The value of the data point's left column (x-axis/independent data).</param>
         /// <param name="yValue">The value of the data point's right column (y-axis/dependent data)</param>
         /// <param name="pointNumber">The data point's position in the set, 0-indexed.</param>
+       
         public void drawTableData(double xValue, double yValue, int pointNumber)
         {
             Font stringFont = new Font(FontFamily.GenericMonospace, 10, FontStyle.Regular);
             using (Graphics graphicsObject = Graphics.FromImage(tableImageBitmap))
             {
                 //draw the left column datapoint
-                graphicsObject.DrawString(xValue.ToString(), stringFont, Brushes.Black, new Point((int)(firstTableDataPointLeftColumn.X), firstTableDataPointLeftColumn.Y + (int)(pointNumber * tableScaleY)));
+                int xValuePositionOffset = maxCharactersInLeftColumn - xValue.ToString().Length;
+                graphicsObject.DrawString(xValue.ToString(), stringFont, Brushes.Black, new Point((int)(firstTableDataPointLeftColumn.X + (perCharacterSizeMultiplier * xValuePositionOffset)), firstTableDataPointLeftColumn.Y + (int)(pointNumber * tableScaleY)));
                 //draw the right column datapoint
-                graphicsObject.DrawString(yValue.ToString(), stringFont, Brushes.Black, new Point((int)(firstTableDataPointRightColumn.X), firstTableDataPointRightColumn.Y + (int)(pointNumber * tableScaleY)));
+                int yValuePositionOffset = maxCharactersInRightColumn - yValue.ToString().Length;
+                graphicsObject.DrawString(yValue.ToString(), stringFont, Brushes.Black, new Point((int)(firstTableDataPointRightColumn.X + (perCharacterSizeMultiplier * yValuePositionOffset)), firstTableDataPointRightColumn.Y + (int)(pointNumber * tableScaleY)));
             }
         }
 
